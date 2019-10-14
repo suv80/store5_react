@@ -10,7 +10,7 @@ class Funball extends React.Component {
 
     render() {
         return (
-            <div style={{fontSize: "1.1em", fontWeight: "bold", color: "#666"}}>
+            <div className="funball">
                 <WhiteSpace size="lg"></WhiteSpace>
                 <Flex style={{textAlign: "center"}}>
                     <Flex.Item>
@@ -34,7 +34,7 @@ class Funball extends React.Component {
                         <div>女装</div>
                     </Flex.Item>
                 </Flex>
-                <WhiteSpace size="lg"></WhiteSpace>
+                <WhiteSpace size="xl"></WhiteSpace>
                 <Flex style={{textAlign: "center"}}>
                     <Flex.Item>
                         <div className="iconfont icon-pingbandiannao"></div>
