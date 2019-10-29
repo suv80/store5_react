@@ -1,0 +1,8 @@
+.banner {
+    widows: 100%;
+}
+.banner img {
+    display: inline-block;
+    width: 100%;
+    height: 750px;
+}

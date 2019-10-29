@@ -1,12 +1,20 @@
 import React from "react";
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 
 import App from "./App";
+import Detail from "./Detail";
 
 function MyRouter() {
     return (
         <BrowserRouter>
-            <Route path="/" component={App} />
+            <Switch>
+                <Route exact path="/">
+                    <App></App>
+                </Route>
+                <Route path="/detail">
+                    <Detail></Detail>
+                </Route>
+            </Switch>
         </BrowserRouter>
     );
 }

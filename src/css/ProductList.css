@@ -3,7 +3,7 @@
 }
 .p-list-item {
     background: #fff;
-    margin: 6px 4px;
+    padding: 32px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -18,15 +18,18 @@
 }
 .p-left {
     width: 320px;
-    height: 320px;
 }
 .p-right {
     width: 422px;
-    padding: 32px;
 }
 .p-img {
-    width: 320px;
-    height: 320px;
+    width: 280px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    box-shadow: 0 0 10px 1px #efefef;
 }
 .p-name {
     font-size: 24px;
@@ -87,6 +90,7 @@
     -moz-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
+    z-index: 1;
 }
 .sale-num {
     font-size: 20px;

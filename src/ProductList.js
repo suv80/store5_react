@@ -37,8 +37,8 @@ class ProductList extends React.Component {
                     return this.getItem(item, inx);
                 })}
                 <div ref="next"></div>
-                <Button ref="button" loading>
-                    loading button
+                <Button ref="button" size="large" loading>
+                    正在加载，请稍候！
                 </Button>
             </div>
         );
@@ -48,10 +48,10 @@ class ProductList extends React.Component {
         return (
             <Flex className="p-list-item" key={inx} align="start" justify="between">
                 <div className="p-left">
-                    <img className="p-img" src={this.getPImg(item)}></img>
+                    <img className="p-img" src={this.getPImg(item)} alt={item.product_name}></img>
                 </div>
                 <div className="p-right">
-                    <div className={"p-name" + " " + this.getType(item)}>{item.product_name}</div>
+                    <div className={`p-name ${this.getType(item)}`}>{item.product_name}</div>
                     <Flex justify="between">
                         {this.getCouponInfo(item)}
                         {this.getSaleInfo(item)}
@@ -81,13 +81,13 @@ class ProductList extends React.Component {
 
     getType(obj) {
         if (/(京东)/gi.test(obj.cps_type)) {
-            if (/【/gi.test(obj.product_name)) {
+            if (obj.product_name.indexOf("【") === 0) {
                 return "jd";
             } else {
                 return "jd right-padding";
             }
         } else if (/(淘宝)|(天猫)/gi.test(obj.cps_type)) {
-            if (/【/gi.test(obj.product_name)) {
+            if (obj.product_name.indexOf("【") === 0) {
                 return "taobao";
             } else {
                 return "taobao right-padding";
@@ -175,8 +175,6 @@ class ProductList extends React.Component {
                 }
 
                 if (req.data.data) {
-                    Toast.success("数据返回成功");
-
                     let dataArr = this.state.dataSource.concat(req.data.data);
 
                     this.setState({
