@@ -8,6 +8,13 @@ import ProductList from "./ProductList";
 
 class App extends React.Component {
     render() {
+        window.addEventListener("popstate", e => {
+            console.log(e);
+            console.log(e.currentTarget.location.href);
+            console.log(e.target.location.href);
+
+            return false;
+        });
         return (
             <div className="App">
                 <Banner></Banner>

@@ -1,4 +1,5 @@
 import React from "react";
+import {withRouter, NavLink} from "react-router-dom";
 import "./css/ProductList.css";
 import {Flex, Toast, Button} from "antd-mobile";
 import Axios from "axios";
@@ -20,15 +21,17 @@ class ProductList extends React.Component {
 
     render() {
         window.addEventListener("scroll", e => {
-            let H = this.state._$("html")[0].clientHeight;
-            H = H || this.state._$("body")[0].clientHeight;
-            let scroll = this.state._$("html")[0].scrollTop;
-            scroll = scroll || this.state._$("body")[0].scrollTop;
-            let nextTop = this.refs.next.offsetTop;
+            try {
+                let H = this.state._$("html")[0].clientHeight;
+                H = H || this.state._$("body")[0].clientHeight;
+                let scroll = this.state._$("html")[0].scrollTop;
+                scroll = scroll || this.state._$("body")[0].scrollTop;
+                let nextTop = this.refs.next.offsetTop;
 
-            if (H + scroll >= nextTop) {
-                this.postApi();
-            }
+                if (H + scroll >= nextTop) {
+                    this.postApi();
+                }
+            } catch (e) {}
         });
 
         return (
@@ -46,25 +49,27 @@ class ProductList extends React.Component {
 
     getItem(item, inx) {
         return (
-            <Flex className="p-list-item" key={inx} align="start" justify="between">
-                <div className="p-left">
-                    <img className="p-img" src={this.getPImg(item)} alt={item.product_name}></img>
-                </div>
-                <div className="p-right">
-                    <div className={`p-name ${this.getType(item)}`}>{item.product_name}</div>
-                    <Flex justify="between">
-                        {this.getCouponInfo(item)}
-                        {this.getSaleInfo(item)}
-                    </Flex>
-                    <Flex justify="between">
-                        <div className="p-price">
-                            <span>{this.getRealPrice(item)}</span>
-                            <span>{this.getPrice(item)}</span>
-                        </div>
-                    </Flex>
-                    <Flex justify="between">{this.getBackCash(item)}</Flex>
-                </div>
-            </Flex>
+            <NavLink to={`/detail/${item.sku_id}`}>
+                <Flex className="p-list-item" key={inx} align="start" justify="between">
+                    <div className="p-left">
+                        <img className="p-img" src={this.getPImg(item)} alt={item.product_name}></img>
+                    </div>
+                    <div className="p-right">
+                        <div className={`p-name ${this.getType(item)}`}>{item.product_name}</div>
+                        <Flex justify="between">
+                            {this.getCouponInfo(item)}
+                            {this.getSaleInfo(item)}
+                        </Flex>
+                        <Flex justify="between">
+                            <div className="p-price">
+                                <span>{this.getRealPrice(item)}</span>
+                                <span>{this.getPrice(item)}</span>
+                            </div>
+                        </Flex>
+                        <Flex justify="between">{this.getBackCash(item)}</Flex>
+                    </div>
+                </Flex>
+            </NavLink>
         );
     }
 
@@ -201,6 +206,9 @@ class ProductList extends React.Component {
                 });
             });
     }
+    jump(skuid) {
+        this.props.history.push(`/detail/${skuid}`);
+    }
 }
 
-export default ProductList;
+export default withRouter(ProductList);

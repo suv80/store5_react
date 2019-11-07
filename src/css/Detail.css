@@ -1,3 +1,7 @@
+.Detail,
+.Detail * {
+    font-family: "Droid Sans", "Heiti SC", "Helvetica", "HelveticaNeue";
+}
 .banner {
     widows: 100%;
 }
@@ -5,4 +9,144 @@
     display: inline-block;
     width: 100%;
     height: 750px;
+}
+.container {
+    padding: 0 30px 30px 30px;
+    background: #fff;
+}
+.product-name {
+    position: relative;
+    padding-top: 36px;
+}
+.product-name span:nth-of-type(1) {
+    font-size: 36px;
+    color: #454545;
+    line-height: 1.5;
+    text-align: justify;
+    text-shadow: 0 0 2px #454545;
+}
+.product-name span:nth-of-type(2) {
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+    font-size: 26px;
+    color: #adadbc;
+}
+.price {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 30px;
+}
+.price-left {
+    display: flex;
+    justify-items: flex-start;
+    align-items: baseline;
+}
+.price-left span:nth-of-type(1) {
+    font-size: 54px;
+    font-weight: bolder;
+    color: #fe3c5e;
+    letter-spacing: 5px;
+}
+.price-left span:nth-of-type(1)::before {
+    content: "\00A5";
+    font-size: 50px;
+    letter-spacing: 0;
+}
+.price-left span:nth-of-type(1)::after {
+    content: "券后价";
+    font-size: 26px;
+    font-weight: normal;
+    color: #ff5656;
+    margin-left: 10px;
+    letter-spacing: 0;
+}
+.price-left span:nth-of-type(2) {
+    font-size: 26px;
+    color: #adadbc;
+    text-decoration: line-through;
+    margin-left: 20px;
+}
+.price-left span:nth-of-type(2)::before {
+    content: "原价:";
+}
+.price > span:nth-of-type(1) {
+    font-size: 22px;
+    color: #adadbc;
+}
+.quan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    background: #ffeff2;
+    border: 1px solid #fe3c5e;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    padding: 34px 32px;
+    margin-top: 30px;
+}
+.quan-left {
+    font-size: 48px;
+    font-weight: bolder;
+    color: #fe3c5e;
+    border-right: 2px dotted #fe3c5e;
+    padding-right: 30px;
+    letter-spacing: 5px;
+}
+.quan-left::before {
+    content: "\00A5";
+    font-size: 44px;
+}
+.quan-middle > div:nth-of-type(1) {
+    font-size: 30px;
+    font-weight: bolder;
+    color: #fe3c5e;
+}
+.quan-middle > div:nth-of-type(2) {
+    font-size: 20px;
+    color: #fe3c5e;
+    margin-top: 20px;
+}
+.quan-right {
+    background: #fff;
+    font-size: 26px;
+    font-weight: bolder;
+    color: #fe3c5e;
+    padding: 18px 24px;
+    border-radius: 1000px;
+    -webkit-border-radius: 1000px;
+    -moz-border-radius: 1000px;
+    -ms-border-radius: 1000px;
+    -o-border-radius: 1000px;
+}
+.tuijian {
+    margin-top: 10px;
+    padding: 32px 30px;
+    background: #fff;
+}
+.tuijian-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #454545;
+}
+.tuijian-container {
+    margin-top: 30px;
+    color: #5a5d6f;
+    font-size: 24px;
+    line-height: 1.5;
+    text-align: justify;
+}
+.imgs {
+    margin-top: 10px;
+    background: #fff;
+    padding: 30px;
+}
+.imgs > img {
+    display: inline-block;
+    width: 100%;
 }

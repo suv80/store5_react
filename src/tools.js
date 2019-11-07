@@ -1,10 +1,10 @@
 class Tools {
     constructor() {
-        alert(123);
+        console.log(`class Tools.`);
     }
 
     getUrlParams(str, key) {
-        if (arguments.length == 1) {
+        if (arguments.length === 1) {
             key = str;
             str = window.location.href;
         }
@@ -15,4 +15,7 @@ class Tools {
     }
 }
 
+let getUrlParams = new Tools().getUrlParams;
+
 export default new Tools();
+export {getUrlParams};

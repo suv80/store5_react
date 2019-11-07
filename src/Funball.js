@@ -4,10 +4,6 @@ import "./css/Funball.css";
 import {Flex, WhiteSpace} from "antd-mobile";
 
 class Funball extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div className="funball">

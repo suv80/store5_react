@@ -9,14 +9,24 @@ class Banner extends React.Component {
         super();
         this.state = {
             data: [banner1, banner2, banner3],
-            imgHeight: 20
+            imgHeight: "100px"
         };
     }
     render() {
         return (
-            <Carousel autoplay={false} infinite>
+            <Carousel autoplay={false} infinite style={{height: this.state.imgHeight}}>
                 {this.state.data.map((val, inx) => (
-                    <img key={inx} src={val} alt="" style={{width: "100%", verticalAlign: "top"}} />
+                    <img
+                        key={inx}
+                        src={val}
+                        alt=""
+                        style={{width: "100%", verticalAlign: "top"}}
+                        onLoad={() => {
+                            // fire window resize event to change height
+                            window.dispatchEvent(new Event("resize"));
+                            this.setState({imgHeight: "auto"});
+                        }}
+                    />
                 ))}
             </Carousel>
         );
